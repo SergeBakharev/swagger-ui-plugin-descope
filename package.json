@@ -1,0 +1,45 @@
+{
+    "name": "swagger-ui-plugin-descope",
+    "version": "0.1.0",
+    "description": "Plugin for swagger-ui to replace the AuthorizationPopup with a Descope login",
+    "repository": {
+        "url": "https://github.com/SergeBakharev/swagger_descope_auth"
+    },
+    "main": "./dist/swagger-ui-plugin-descope.js",
+    "scripts": {
+        "build": "node esbuild.config.mjs",
+        "build-types": "tsc"
+    },
+    "keywords": [
+        "plugin",
+        "swagger-ui",
+        "openApi",
+        "swagger",
+        "API"
+    ],
+    "author": "SergeBakharev",
+    "license": "Apache 2.0",
+    "dependencies": {
+        "@braintree/sanitize-url": "^6.0.4",
+        "@descope/react-sdk": "^1.0.9",
+        "classnames": "^2.3.2",
+        "immutable": "^4.3.2",
+        "object-hash": "^3.0.0",
+        "prop-types": "^15.8.1",
+        "randombytes": "^2.1.0",
+        "react": "=17.0.2",
+        "react-immutable-proptypes": "^2.2.0",
+        "react-immutable-pure-component": "^2.2.2",
+        "react-redux": "^8.1.2",
+        "redux": "^4.1.2",
+        "swagger-ui": "^4.19.1"
+    },
+    "devDependencies": {
+        "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+        "@types/swagger-ui": "^3.52.0",
+        "esbuild": "0.17.10",
+        "swagger-ui-dist": "^4.19.1",
+        "typescript": "^4.9.5",
+        "yargs": "^17.7.2"
+    }
+}
