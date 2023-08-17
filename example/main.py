@@ -1,20 +1,17 @@
-from fastapi import FastAPI, Security
 from typing import Annotated
 
+from fastapi import FastAPI, Security
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 from descope import DescopeClient
 
-
-from fastapi_descope import descope_get_swagger_ui_html, descope_cookie_or_apibearer_check
-
+from fastapi_descope import descope_get_swagger_ui_html, auth_scheme_bearer
 
 
 # TODO: move to env var
 PROJECT_ID = "P2TsMEQkHlw0hCN9GJrldp9SKRFT"
 
 app = FastAPI(docs_url=None)
-
 app.mount("/js", StaticFiles(directory="js"), name="js")
 
 
@@ -37,7 +34,7 @@ def root():
 
 
 @app.get("/protected")
-def protected_api(session_token: Annotated[str, Security(descope_cookie_or_apibearer_check)]):
+def protected_api(session_token: Annotated[str, Security(auth_scheme_bearer)]):
     """An example of an API that requires authentication"""
     return {"message": "You are authenticated"}
 
